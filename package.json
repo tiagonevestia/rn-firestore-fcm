@@ -3,14 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "yarn android && yarn react-native start",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "screenshot:android": "adb exec-out screencap -p > ~/Desktop/android-$(date \"+%Y-%m-%d_%H-%M-%S\")_$(jot -r 1 2000 65000).png",
+    "clear:android": "cd android && ./gradlew clear && cd ../"
   },
   "dependencies": {
     "@react-native-firebase/app": "^8.4.5",
+    "@react-native-firebase/messaging": "^7.8.11",
     "react": "16.13.1",
     "react-native": "0.63.2"
   },
